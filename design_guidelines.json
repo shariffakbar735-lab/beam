@@ -1,0 +1,246 @@
+{
+  "project_name": "Beam",
+  "app_archetype": "Terminal / Dev-Tool (Precision Tactical Web Messenger)",
+  "theme": "dark",
+  "design_philosophy": "Precision terminal-grade hardware interface meets instant P2P utility. Strict high-contrast monochrome with electric emerald telemetry accents, ultra-crisp 1px borders, tactile micro-surfaces, zero extraneous fluff. Feels like an encrypted peer-to-peer relay tool built for hackers, engineers, and power users who transfer snippets between devices in half a second.",
+  "entry_surfaces": {
+    "/": "split terminal layout on desktop with persistent QR session HUD panel left, real-time message stream right; on mobile stacked adaptive HUD with quick-scan modal and full-height chat stream"
+  },
+  "colors": {
+    "surfaces": [
+      {
+        "name": "page",
+        "kind": "solid",
+        "bg": "#090A0F",
+        "on_bg": "#EDEDF0",
+        "on_bg_muted": "#8A8F9E",
+        "roles": {
+          "link": "#38BDF8",
+          "error": "#F87171",
+          "success": "#10B981",
+          "warning": "#FBBF24"
+        }
+      },
+      {
+        "name": "panel",
+        "kind": "solid",
+        "bg": "#12141C",
+        "on_bg": "#EDEDF0",
+        "on_bg_muted": "#8A8F9E",
+        "roles": {
+          "border": "#232738",
+          "border_highlight": "#383D54"
+        }
+      },
+      {
+        "name": "chat_bubble_self",
+        "kind": "solid",
+        "bg": "#162B22",
+        "on_bg": "#ECFDF5",
+        "on_bg_muted": "#6EE7B7",
+        "roles": {
+          "border": "#059669",
+          "link": "#34D399"
+        }
+      },
+      {
+        "name": "chat_bubble_peer",
+        "kind": "solid",
+        "bg": "#181B26",
+        "on_bg": "#F1F5F9",
+        "on_bg_muted": "#94A3B8",
+        "roles": {
+          "border": "#2B3145",
+          "link": "#38BDF8"
+        }
+      },
+      {
+        "name": "qr_card",
+        "kind": "solid",
+        "bg": "#FFFFFF",
+        "on_bg": "#090A0F",
+        "on_bg_muted": "#4B5563"
+      },
+      {
+        "name": "header_hud",
+        "kind": "glass",
+        "contrast_against": "#090A0F",
+        "guarantee": "backdrop-blur-xl bg-[#0C0E14]/90 border-b border-[#232738]",
+        "on_bg": "#F8FAFC",
+        "on_bg_muted": "#94A3B8"
+      },
+      {
+        "name": "composer_dock",
+        "kind": "glass",
+        "contrast_against": "#090A0F",
+        "guarantee": "backdrop-blur-xl bg-[#0F1118]/95 border-t border-[#232738]",
+        "on_bg": "#F8FAFC",
+        "on_bg_muted": "#94A3B8"
+      },
+      {
+        "name": "status_badge_connected",
+        "kind": "solid",
+        "bg": "#064E3B",
+        "on_bg": "#A7F3D0",
+        "on_bg_muted": "#6EE7B7"
+      },
+      {
+        "name": "status_badge_reconnecting",
+        "kind": "solid",
+        "bg": "#451A03",
+        "on_bg": "#FDE68A",
+        "on_bg_muted": "#FBBF24"
+      }
+    ],
+    "accent": "#10B981",
+    "on_accent": "#022C22",
+    "accent_hover": "#059669",
+    "cyan_telemetry": "#06B6D4",
+    "zinc_border": "#232738",
+    "zinc_hover": "#1C202E"
+  },
+  "typography": {
+    "font_family_heading": "JetBrains Mono, IBM Plex Mono, monospace",
+    "font_family_body": "JetBrains Mono, IBM Plex Mono, monospace",
+    "font_family_sans": "Geist, Inter, sans-serif",
+    "font_imports": [
+      "@import \"@fontsource-variable/jetbrains-mono\";",
+      "@import \"@fontsource-variable/geist\";"
+    ],
+    "scale_px": {
+      "display": 48,
+      "h1": 36,
+      "h2": 24,
+      "h3": 20,
+      "body": 15,
+      "caption": 13
+    },
+    "rules": {
+      "headings": "font-mono font-semibold tracking-tight text-slate-100",
+      "labels": "font-mono text-xs font-medium uppercase tracking-[0.18em] text-slate-400",
+      "code_messages": "font-mono text-sm leading-relaxed whitespace-pre-wrap break-words selection:bg-emerald-500/30",
+      "telemetry_stats": "font-mono text-xs tabular-nums text-emerald-400"
+    }
+  },
+  "layout_and_grids": {
+    "desktop": {
+      "container": "w-full h-screen max-h-screen overflow-hidden flex flex-col bg-[#090A0F] text-[#EDEDF0]",
+      "main_grid": "flex-1 grid grid-cols-12 overflow-hidden h-[calc(100vh-60px)]",
+      "left_sidebar": "col-span-4 lg:col-span-4 xl:col-span-3.5 border-r border-[#232738] bg-[#0E1017] flex flex-col overflow-y-auto p-5 gap-5",
+      "right_chat_stream": "col-span-8 lg:col-span-8 xl:col-span-8.5 flex flex-col h-full bg-[#090A0F] relative overflow-hidden"
+    },
+    "mobile": {
+      "container": "w-full h-[100dvh] flex flex-col bg-[#090A0F] text-[#EDEDF0] overflow-hidden",
+      "header_hud": "h-14 px-3.5 flex items-center justify-between border-b border-[#232738] bg-[#0C0E14]/90 backdrop-blur-xl shrink-0 z-30",
+      "chat_stream": "flex-1 overflow-y-auto px-3.5 py-4 space-y-3.5 pb-36",
+      "composer_dock": "fixed bottom-0 left-0 right-0 p-3 bg-[#0F1118]/95 backdrop-blur-xl border-t border-[#232738] z-40"
+    }
+  },
+  "visual_enhancers": {
+    "grid_overlay": "radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.08) 0%, transparent 70%)",
+    "scanline_effect": "pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.25)_51%)] bg-[length:100%_4px] opacity-20",
+    "border_glow": "1px solid rgba(16, 185, 129, 0.25)",
+    "terminal_cursor": "inline-block w-2 h-4 bg-emerald-400 animate-pulse align-middle ml-1",
+    "tactile_active_card": "active:scale-[0.985] transition-transform duration-100 ease-out"
+  },
+  "key_components": [
+    {
+      "name": "HeaderHUD",
+      "path": "frontend/src/components/HeaderHUD.tsx",
+      "purpose": "Displays Beam brandmark, connection state (WebSocket live/polling fallback), peer device status (Phone online / Laptop online / Waiting for peer), latency counter, Auto-copy toggle, and Room actions (Clear All, Unpair/New Room, QR Code modal trigger on mobile)."
+    },
+    {
+      "name": "PairingPanel",
+      "path": "frontend/src/components/PairingPanel.tsx",
+      "purpose": "Left-dock on desktop or drawer/dialog on mobile. Contains large high-contrast QR code (react-qr-code or qrcode.react), click-to-copy pairing URL with hash fragment key, room ID indicator, 24h retention notice, and PWA installation prompt."
+    },
+    {
+      "name": "MessageStream",
+      "path": "frontend/src/components/MessageStream.tsx",
+      "purpose": "Scrollable thread of encrypted messages. Handles automatic scroll-to-bottom on new messages, empty state with pairing guidance, and day/hour grouping."
+    },
+    {
+      "name": "MessageBubble",
+      "path": "frontend/src/components/MessageBubble.tsx",
+      "purpose": "Individual terminal card with sender indicator (My Device vs Peer Device), editable device label tag, timestamp, 1-click Copy button with tactile 'COPIED!' feedback, clickable URL parsing with safe target='_blank', and character counter if long."
+    },
+    {
+      "name": "MessageComposer",
+      "path": "frontend/src/components/MessageComposer.tsx",
+      "purpose": "Fixed bottom dock with multi-line auto-expanding textarea (Enter to send, Shift+Enter for newline), instant 'Paste & Send' button reading navigator.clipboard, character count (10,000 max), and clear action feedback."
+    },
+    {
+      "name": "DeviceLabelEditor",
+      "path": "frontend/src/components/DeviceLabelEditor.tsx",
+      "purpose": "Quick inline modal or popover to customize device moniker ('MacBook Pro', 'iPhone 15', 'Pixel 8', 'Work PC'). Persisted in localStorage."
+    },
+    {
+      "name": "SecurityNoticeBar",
+      "path": "frontend/src/components/SecurityNoticeBar.tsx",
+      "purpose": "Crisp terminal banner stating: 'E2E Encrypted (AES-GCM client-side) • Ephemeral 24H memory • Zero user log'."
+    }
+  ],
+  "motion_and_interactions": {
+    "bubble_entrance": "opacity 0 -> 1, translateY 8px -> 0px over 180ms ease-out",
+    "copy_feedback": "Instant green flash badge with scale bump 1.05 -> 1.0 and Sonner toast notification",
+    "paste_send_action": "Subtle border pulse on composer when paste & send executes",
+    "connection_pulse": "Subtle green ping ring on the connection status indicator when WebSocket is active",
+    "reconnect_spin": "Animated loader icon when falling back to polling or attempting reconnection"
+  },
+  "accessibility_and_contrast": {
+    "wcag_level": "AAA compliance on dark surfaces",
+    "text_contrast": "White (#EDEDF0) on #090A0F provides 17.8:1 contrast. Muted text (#8A8F9E) on #090A0F provides 5.4:1 contrast (exceeds WCAG AA 4.5:1).",
+    "focus_states": "focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#090A0F] outline-none",
+    "keyboard_navigation": "Full tab ordering across composer, action buttons, copy toggles, and modal dialogs."
+  },
+  "data_testid_manifest": [
+    "app-header",
+    "connection-status-badge",
+    "peer-status-indicator",
+    "auto-copy-toggle",
+    "clear-all-messages-button",
+    "unpair-new-room-button",
+    "device-label-button",
+    "device-label-input",
+    "device-label-save-button",
+    "qr-code-canvas",
+    "copy-shareable-link-button",
+    "pairing-room-id-display",
+    "open-qr-modal-button",
+    "message-stream-container",
+    "message-bubble-item",
+    "message-sender-label",
+    "message-timestamp",
+    "message-text-content",
+    "message-copy-button",
+    "message-link-item",
+    "empty-messages-banner",
+    "message-composer-form",
+    "message-composer-input",
+    "message-send-button",
+    "message-paste-send-button",
+    "composer-char-count",
+    "security-e2e-badge",
+    "pwa-install-button"
+  ],
+  "instructions_to_main_agent": [
+    "1. THEME: Apply dark-mode by default. Set class='dark' on <html> in frontend/index.html and maintain the terminal dark aesthetic defined in frontend/src/index.css.",
+    "2. FONTS: Import '@fontsource-variable/jetbrains-mono' and '@fontsource-variable/geist' in frontend/src/index.css. Use mono for headings, buttons, tags, timestamps, message text, and telemetry. Use Geist for secondary UI descriptions.",
+    "3. REAL-TIME & WEBSOCKET: Implement a robust WebSocket manager in frontend/src/lib/websocket.ts that connects to /api/ws/{room_id} with exponential backoff and a 2-second fallback polling interval via TanStack Query when offline.",
+    "4. CLIENT-SIDE ENCRYPTION (AES-GCM): Generate a 256-bit encryption key stored in the URL hash fragment (#key=...) when creating a room. Encrypt message payloads in the browser using Web Crypto API before sending over WebSocket/API. Decrypt incoming payloads with the hash key. If URL hash is missing, derive or prompt appropriately.",
+    "5. AUTO-COPY FEATURE: Implement the 'Auto-copy incoming text' toggle. When on, invoke navigator.clipboard.writeText on incoming peer messages. Wrap in try/catch to fail silently if the browser permissions block background clipboard writes.",
+    "6. PASTE & SEND BUTTON: When clicked, invoke navigator.clipboard.readText(). If text is retrieved, immediately send the message and clear composer. If permission is denied/unavailable, focus the textarea with a helpful toast for manual paste.",
+    "7. DEVICE MONIKER: Detect device type using navigator.userAgent (e.g. 'Laptop (Mac)', 'Phone (iOS)', 'Phone (Android)', 'Desktop (Linux)'), allow user to edit and save it to localStorage('beam_device_label'). Attach this label to outgoing messages.",
+    "8. 24H EXPIRATION & CLEAR ALL: Messages stored in MongoDB must have a created_at UTC timestamp with a 24-hour TTL index (expireAfterSeconds: 86400). The 'Clear All' action sends a broadcast/DELETE request to delete all messages in the room.",
+    "9. PWA CAPABILITY: Include web app manifest (manifest.json), service worker registration, and apple-touch-icon links so users can tap 'Add to Home Screen' on iOS/Android.",
+    "10. TESTING COMPLIANCE: Every button, input, toggle, message item, status indicator, and modal MUST contain its exact data-testid as specified in the data_testid_manifest."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "Never use generic centered AI-slop layouts or washed-out gradients.",
+    "Containers with borders MUST have generous internal padding (p-4 to p-6).",
+    "All interactive elements require crisp micro-interactions (:hover, :active, :focus-visible).",
+    "No universal 'transition: all' that disrupts transform animations.",
+    "All text on dark surfaces must maintain at least 4.5:1 contrast against its background.",
+    "Always test both desktop (1280px split view) and mobile (390px full-height stream) responsiveness."
+  ]
+}
